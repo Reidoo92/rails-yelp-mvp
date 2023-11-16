@@ -1,23 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
+# This file should ensure the existence of records required to run the application in every environment (production,
+# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
-# Examples:
+# Example:
 #
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-
-require "faker"
-
-puts "Creating 5 fake restaurants..."
-Restaurant.destroy_all
-5.time do
-  restaurant = Restaurant.new(
-    name: Faker::Company.name,
-    address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-    phone_number: "#{Faker::PhoneNumber.phone_number_with_country_code}",
-    categroy: ["chinese", "italian", "japanese", "french", "belgian"].sample
-  )
-
-  restaurant.save!
-  puts "Save restaurant #{restaurant.name} to the database 🍽️"
-end
+#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
+#     MovieGenre.find_or_create_by!(name: genre_name)
+#   end
